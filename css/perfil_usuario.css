@@ -1,0 +1,115 @@
+body {
+  /* Configuração do plano de fundo */
+  background-image: url("https://th.bing.com/th/id/R.6fb919a79e342539288b0ec884337e55?rik=pknx6EjMmfIHxg&riu=http%3a%2f%2fwww.actionacademia.com.br%2fbackground2.jpg&ehk=0laZVmk3O3KhZYQuOJlHhreCcjEIzycAMyX9zw9DGt4%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Configurações de fonte e margem */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.espaco {
+  width: 80px;
+  height: 65px;
+}
+
+.foto_perfil {
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgb(40, 243, 22);
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 31px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+.container_geral {
+  display: flex;
+  gap: 60px;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 190px;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  justify-content: center;
+  height: 100%;
+}
+
+.info {
+  font-size: 25px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.info_valor {
+  font-size: 25px;
+  color: #13a300;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+.editar,
+.excluir,
+.encerrar {
+  width: 300px;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: none;
+  background-color:  #13a300;
+  color: #000000;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+  border-radius: 40px;
+}
+
+.editar:hover,
+.excluir:hover,
+.encerrar:hover {
+  box-sizing: border-box;
+  transition: 0.8s;
+  cursor: pointer;
+  background-color:rgb(212, 26, 26);
+  color: #000000;
+  font-weight: 500;
+}
+
+.botoes {
+  display: grid;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+/* estilo_botao.css */
+
+input[type="submit"],
+input[type="file"] {
+    background-color:#13a300;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+}
