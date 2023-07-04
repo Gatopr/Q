@@ -1,10 +1,10 @@
 <?php
-$servername = "localhost";
-$username = "adim";
-$password = "1212";
-$dbname = "GYMPLANNER";
+$servidor = "localhost";
+$usuario = "adim";
+$senha = "1212";
+$banco = "GYMPLANNER";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servidor, $usuario, $senha, $banco);
 
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
@@ -34,4 +34,3 @@ if (isset($_POST['id'])) {
 }
 
 $conn->close();
-?>

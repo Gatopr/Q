@@ -36,13 +36,13 @@ if (isset($_POST['confirmado'])) {
 </head>
 
 <header>
-    <nav>
-        <div class="nav-bar">
+    <nav class ="sei">
+        <div class="espaco">
             <a class="menu-inicial" href="tela_inicial.php">Início</a>
             <a href="montar_cronograma.php">Cronograma</a>
             <a href="ver_exercicios.php">Exercícios</a>
             <a href="saiba_mais.php">Saiba Mais</a>
-            <img src="https://img.wattpad.com/2847a54156b8585551507c322a26d2c58a487e0f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f726350555f6446443230756d76513d3d2d3839303633343438322e313631663730643738383739386364353930343838353933353730302e6a7067?s=fit&w=720&h=720" alt="Imagem do usuário">
+            <img class= "foto" src="https://img.wattpad.com/2847a54156b8585551507c322a26d2c58a487e0f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f726350555f6446443230756d76513d3d2d3839303633343438322e313631663730643738383739386364353930343838353933353730302e6a7067?s=fit&w=720&h=720" alt="Imagem do usuário">
         </div>
     </nav>
 </header>
@@ -50,10 +50,10 @@ if (isset($_POST['confirmado'])) {
 <body>
     <form method="POST">
         <h2>Digite seu peso:</h2>
-        <input type="number" name="peso" placeholder="Digite seu Peso"> <br>
+        <input type="number" name="peso" min="40" placeholder="Digite seu Peso"> <br>
 
         <h2>Digite sua altura:</h2>
-        <input type="number" step="0.010" name="altura" placeholder="Digite sua altura"> <br> <br>
+        <input type="number" step="0.010" name="altura" min="1.40" placeholder="Digite sua altura"> <br> <br>
         <button type="submit" name="confirmado">Gerar Resultado</button>
         <?php if (isset($_POST['confirmado'])) : ?>
             <h3>Resultado:</h3>

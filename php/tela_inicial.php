@@ -29,6 +29,7 @@
         <button onclick="window.location.href = '/php/saiba_mais.php'">Saiba mais</button>
         <button onclick="window.location.href = '/php/calcular_imc.php'">Calcule seu IMC</button>
         <button onclick="window.location.href = '/php/conhecimento.php'">conhecendo</button>
+        <button onclick="window.location.href = '/php/gerenciamento.php'">Gerenciamento</button>
 
     </div>
 </body>

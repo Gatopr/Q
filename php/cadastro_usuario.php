@@ -40,12 +40,11 @@
 	</main>
 
 	<?php
-	$servidor = "localhost"; // endereço do servidor MySQL (geralmente é "localhost")
-	$usuario = "adim"; // nome de usuário do MySQL
-	$senha = "1212"; // senha do MySQL
-	$banco = "GYMPLANNER"; // nome do banco de dados que você criou
+	$servidor = "localhost";
+	$usuario = "root";
+	$senha = "#userVL2023";
+	$banco = "gymplanner2";
 
-	// Conexão com o banco de dados
 	$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
 	// Verificação da conexão

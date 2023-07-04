@@ -8,83 +8,33 @@ body {
   font-family: Arial, sans-serif;
   padding: 0;
 }
-nav {
-  background-color: #335033;
-  display: flex;
-  height: 70px;
-  padding: 5px 200px 4;
- left: 100%;
-}
-header {
-  position: fixed; /* Fixar o cabeçalho no topo da página */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999; /* Garantir que o cabeçalho fique acima dos outros elementos */
+
+h2 {
+  text-align: center;
+  color: white;
 }
 
 main {
   margin-top: 70px; /* Adicionar margem no topo para evitar que o conteúdo fique oculto pelo cabeçalho */
 }
-nav img {
-  border-radius: 100%;
-  box-shadow: 0px 0px 10px rgba(2, 255, 2, 0.993);
-  width: 80px;
-  height: 65px;
-  border-radius: 50%;
-   margin-left: 1px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-sizing: border-box;
-}
-.nav-bar {
-  gap: 30px;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  flex-grow: 1;
-  text-align: center;
-  
-}
-.nav-bar a.menu-inicial:before {
-  content: "";
-  width: 65px;
-  height: 65px;
-  display: inline-block;
-  vertical-align: middle;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10px auto; /* ou ajuste conforme necessário */
 }
 
-.nav-bar img {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 15px;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(2, 255, 2, 0.993);
+table {
+  width: 100%;
 }
-.nav-bar a {
-  display: flex;
-  align-items: center;
-  float: left;
-  color: #ffffff;
-  padding: 8px 20px;
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: 400;
-}
-.nav-bar a:hover {
-  transition: 0.8s;
-  color: #fdfdfd;
-  font-weight: 500px;
-  font-size: 23px;
-  text-decoration: underline;
-}
-table td, table th {
-  padding: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
+
+table td,
+table th {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  height: 50px; /* Altura fixa desejada para as células */
+  text-align: center;
 }
 
 /* Estilos do formulário */
@@ -95,29 +45,38 @@ form {
   margin-top: 20px;
 }
 
-form select, form input[type="number"] {
+h3 {
+  text-align: center;
+}
+
+form input[type="number"] {
   margin-bottom: 10px;
   padding: 8px;
   width: 200px;
   border: 1px solid #ddd;
 }
 
-form button {
+form select {
+  padding: 8px;
+  width: 220px;
+}
+
+input[type="submit"] {
   padding: 10px 20px;
   background-color: #4caf50;
   color: #fff;
   border: none;
   cursor: pointer;
+  margin-top: 40px;
 }
 
-form button:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
 /* Estilos do título */
-h3 {
-  margin-top: 20px;
+label {
+  margin: 10px 20px;
   font-weight: 500px;
-  margin-left: 45%;
   color: white;
 }

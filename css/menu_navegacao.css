@@ -1,9 +1,13 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 nav {
   background-color: #335033;
   display: flex;
   height: 70px;
   padding: 5px 200px 4;
- left: 100%;
+  left: 100%;
 }
 header {
   position: fixed; /* Fixar o cabeçalho no topo da página */
@@ -33,7 +37,6 @@ nav img {
   overflow: hidden;
   flex-grow: 1;
   text-align: center;
-  
 }
 .nav-bar a.menu-inicial:before {
   content: "";

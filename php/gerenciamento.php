@@ -10,13 +10,12 @@
 
     <?php
     // Configurações do banco de dados
-    $servername = "localhost";
-    $username = "adim";
-    $password = "1212";
-    $dbname = "GYMPLANNER";
+    $servidor = "localhost";
+    $usuario = "adim";
+    $senha = "1212";
+    $banco = "GYMPLANNER";
 
-    // Conexão com o banco de dados
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = mysqli_connect($servidor, $usuario, $senha, $banco);
 
     // Verifica se houve erro na conexão
     if ($conn->connect_error) {
@@ -32,7 +31,7 @@
         $tempo = $_POST["tempo"];
         $imagem = $_FILES["imagem"]["name"];
         $imagem_temp = $_FILES["imagem"]["tmp_name"];
-        $imagem_dir = "caminho/para/diretorio/de/imagens/" . $imagem; // Substitua pelo diretório desejado
+        $imagem_dir = "../img/gifs_exercicios/" . $imagem;
 
         // Move o arquivo de imagem para o diretório especificado
         move_uploaded_file($imagem_temp, $imagem_dir);
@@ -64,7 +63,6 @@
 
     // Processa o formulário de edição de exercício
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editar"])) {
-        $id = $_POST["exercicio_id"];
         $categoria = $_POST["categoria"];
         $nome = $_POST["nome"];
         $series = $_POST["series"];
@@ -72,15 +70,14 @@
         $tempo = $_POST["tempo"];
         $imagem = $_FILES["imagem"]["name"];
         $imagem_temp = $_FILES["imagem"]["tmp_name"];
-        $imagem_dir = "caminho/para/diretorio/de/imagens/" . $imagem; // Substitua pelo diretório desejado
+        $imagem_dir = "../img/gifs_exercicios/" . $imagem;
 
         // Move o arquivo de imagem para o diretório especificado
         move_uploaded_file($imagem_temp, $imagem_dir);
 
         // Atualiza os dados do exercício no banco de dados
-        $sql = "UPDATE exercicios SET categoria = '$categoria', nome = '$nome',
-                series = '$series', repeticao = '$repeticao', tempo = '$tempo', imagem = '$imagem'
-                WHERE id = '$id'";
+        $sql = "UPDATE exercicios SET categoria = '$categoria', nome = '$nome', series = '$series',
+                repeticao = '$repeticao', tempo = '$tempo', imagem = '$imagem' WHERE id = '$id'";
 
         if ($conn->query($sql) === TRUE) {
             echo "Exercício atualizado com sucesso!";
@@ -89,45 +86,38 @@
         }
     }
 
-    // Consulta os exercícios no banco de dados
+    // Consulta e exibe os exercícios cadastrados
     $sql = "SELECT * FROM exercicios";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table>
-                <tr>
-                    <th>ID</th>
-                    <th>Categoria</th>
-                    <th>Nome</th>
-                    <th>Séries</th>
-                    <th>Repetições</th>
-                    <th>Tempo</th>
-                    <th>Imagem</th>
-                    <th>Ações</th>
-                </tr>";
-
         while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                    <td>" . $row["id"] . "</td>
-                    <td>" . $row["categoria"] . "</td>
-                    <td>" . $row["nome"] . "</td>
-                    <td>" . $row["series"] . "</td>
-                    <td>" . $row["repeticao"] . "</td>
-                    <td>" . $row["tempo"] . "</td>
-                    <td>" . $row["imagem"] . "</td>
-                    <td>
-                        <form method='POST' action='" . $_SERVER["PHP_SELF"] . "' enctype='multipart/form-data'>
-                            <input type='hidden' name='exercicio_id' value='" . $row["id"] . "'>
-                            <input type='submit' name='remover' value='Remover'>
-                            <input type='submit' name='editar' value='Editar'>
-                        </form>
-                    </td>
-                </tr>";
-        }
+            // Obtém os valores das colunas do resultado
+            $id = $row["id"];
+            $categoria = $row["categoria"];
+            $nome = $row["nome"];
+            $series = $row["series"];
+            $repeticao = $row["repeticao"];
+            $tempo = $row["tempo"];
+            $imagem = $row["imagem"];
 
-        echo "</table>";
+            echo "<div>";
+            echo "<img width='190px' src='../img/gifs_exercicios/" . $row["imagem"] . "'><br>";
+            echo "ID: " . $row["id"] . "<br>";
+            echo "Categoria: " . $row["categoria"] . "<br>";
+            echo "Nome: " . $row["nome"] . "<br>";
+            echo "Séries: " . $row["series"] . "<br>";
+            echo "Repetições: " . $row["repeticao"] . "<br>";
+            echo "Tempo: " . $row["tempo"] . "<br>";
+            echo "<form method='POST' action='" . $_SERVER["PHP_SELF"] . "'>";
+            echo "<input type='hidden' name='exercicio_id' value='" . $row["id"] . "'>";
+            echo "<input type='submit' name='remover' value='Remover'>";
+            echo '<a href="gerenciamento_editar.php?id=' . $id . '">Editar</a>'; // Botão de edição
+            echo "</form>";
+            echo "</div>";
+        }
     } else {
-        echo "Nenhum exercício encontrado.";
+        echo "Nenhum exercício cadastrado.";
     }
 
     // Fecha a conexão com o banco de dados
@@ -162,7 +152,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editar"])) {
         $id = $_POST["exercicio_id"];
 
-        // Obtém os dados do exercício selecionado
+        // Consulta os dados do exercício pelo ID
         $sql = "SELECT * FROM exercicios WHERE id = '$id'";
         $result = $conn->query($sql);
 
@@ -192,11 +182,10 @@
                 <label for="imagem">Imagem:</label>
                 <input type="file" name="imagem"><br>
 
-                <input type="submit" name="editar" value="Editar">
+                <input type="submit" name="editar" value="Salvar">
             </form>
+
     <?php
-        } else {
-            echo "Exercício não encontrado.";
         }
     }
     ?>

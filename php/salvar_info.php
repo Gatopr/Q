@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,48 +24,48 @@
     </nav>
   </header>
 
-<?php
-session_start();
+  <?php
+  session_start();
 
-$servername = "localhost";
-$username = "adim";
-$password = "1212";
-$dbname = "GYMPLANNER";
+  $servidor = "localhost";
+  $usuario = "adim";
+  $senha = "1212";
+  $banco = "GYMPLANNER";
 
-$conexao = mysqli_connect($servername, $username, $password, $dbname);
+  $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
-if (!$conexao) {
-	die("Falha na conexão: " . mysqli_connect_error());
-}
+  if (!$conexao) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
 
-$email = $_SESSION["email"];
+  $email = $_SESSION["email"];
 
-$consulta = "SELECT * FROM usuarios WHERE email = '$email'";
-$resultado = mysqli_query($conexao, $consulta);
+  $consulta = "SELECT * FROM usuarios WHERE email = '$email'";
+  $resultado = mysqli_query($conexao, $consulta);
 
-if (mysqli_num_rows($resultado) == 1) {
-	$usuario = mysqli_fetch_assoc($resultado);
-} else {
-	header("Location: perfil_usuario.php");
-	exit();
-}
+  if (mysqli_num_rows($resultado) == 1) {
+    $usuario = mysqli_fetch_assoc($resultado);
+  } else {
+    header("Location: perfil_usuario.php");
+    exit();
+  }
 
-mysqli_close($conexao);
+  mysqli_close($conexao);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$novoNome = $_POST["nome"];
-	$novoEmail = $_POST["email"];
-	$novoNascimento = $_POST["nascimento"];
-	$novoSexo = $_POST["sexo"];
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $novoNome = $_POST["nome"];
+    $novoEmail = $_POST["email"];
+    $novoNascimento = $_POST["nascimento"];
+    $novoSexo = $_POST["sexo"];
 
-	$conexao = mysqli_connect($servername, $username, $password, $dbname);
-	$update_query = "UPDATE usuarios SET nome = '$novoNome', email = '$novoEmail', nascimento = '$novoNascimento', sexo = '$novoSexo' WHERE email = '$email'";
-	mysqli_query($conexao, $update_query);
-	mysqli_close($conexao);
+    $conexao = mysqli_connect($servername, $username, $password, $dbname);
+    $update_query = "UPDATE usuarios SET nome = '$novoNome', email = '$novoEmail', nascimento = '$novoNascimento', sexo = '$novoSexo' WHERE email = '$email'";
+    mysqli_query($conexao, $update_query);
+    mysqli_close($conexao);
 
-	header("Location: perfil_usuario.php");
-	exit();
-}
-?>
+    header("Location: perfil_usuario.php");
+    exit();
+  }
+  ?>
 
 </html>

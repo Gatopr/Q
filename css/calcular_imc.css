@@ -11,19 +11,12 @@ body {
   padding: 0;
 }
 
-h1{
+h1 {
   color: #fff;
   text-align: center;
-  
 }
 /* Cabeçalho */
-header {
-  /* Estilo do fundo do cabeçalho */
-  background-color: #335033;
-  padding: 10px;
-  color: #fff;
- 
-}
+
 .nav-bar a {
   /* Estilo dos links da barra de navegação */
   color: #ffffff;
@@ -42,58 +35,57 @@ header {
   color: white;
 }
 
-
 /* Estilos para telas menores (responsividade) */
 @media screen and (max-width: 768px) {
   .nav-bar a:not(:first-child) {
-      /* Esconde os links, exceto o primeiro, em telas menores */
-      display: none;
+    /* Esconde os links, exceto o primeiro, em telas menores */
+    display: none;
   }
 
   .nav-bar a.menu-inicial {
-      /* Estilo do primeiro link em telas menores */
-      margin-left: 10px;
+    /* Estilo do primeiro link em telas menores */
+    margin-left: 10px;
   }
 
   .hamburger {
-      /* Estilo do ícone de menu em telas menores */
-      display: block;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      cursor: pointer;
+    /* Estilo do ícone de menu em telas menores */
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
   }
 
   .hamburger .line {
-      /* Estilo das linhas do ícone de menu em telas menores */
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 5px 0;
+    /* Estilo das linhas do ícone de menu em telas menores */
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
   }
 
   .dropdown-content {
-      /* Estilo do conteúdo do dropdown em telas menores */
-      position: static;
-      display: none;
-      background-color: rgb(32, 240, 32);
-      padding: 12px 16px;
+    /* Estilo do conteúdo do dropdown em telas menores */
+    position: static;
+    display: none;
+    background-color: rgb(32, 240, 32);
+    padding: 12px 16px;
   }
 
   .dropdown-content a {
-      /* Estilo dos links no conteúdo do dropdown em telas menores */
-      display: block;
-      padding: 5px 0;
+    /* Estilo dos links no conteúdo do dropdown em telas menores */
+    display: block;
+    padding: 5px 0;
   }
 
   .dropdown:hover .dropdown-content {
-      /* Esconde o conteúdo do dropdown ao passar o mouse sobre o elemento pai em telas menores */
-      display: none;
+    /* Esconde o conteúdo do dropdown ao passar o mouse sobre o elemento pai em telas menores */
+    display: none;
   }
 
   .dropdown:hover .dropdown-content.show {
-      /* Exibe o conteúdo do dropdown ao passar o mouse sobre o elemento pai em telas menores */
-      display: block;
+    /* Exibe o conteúdo do dropdown ao passar o mouse sobre o elemento pai em telas menores */
+    display: block;
   }
 }
 
@@ -138,11 +130,11 @@ button[name="confirmado"] {
 button[name="confirmado"]:hover {
   background-color: #228b22;
 }
-h3{
+h3 {
   color: #ffffff;
   text-align: center;
 }
-p{
+p {
   color: #fff;
   text-align: center;
 }

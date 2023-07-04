@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$servidor = "localhost";
-$usuario = "adim";
-$senha = "1212";
-$banco = "GYMPLANNER";
+$servidor = "localhost"; // endereço do servidor MySQL (geralmente é "localhost")
+$usuario = "adim"; // nome de usuário do MySQL
+$senha = "1212"; // senha do MySQL
+$banco = "GYMPLANNER"; // nome do banco de dados que você criou
 
 $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
@@ -42,7 +42,7 @@ if (mysqli_num_rows($resultado) == 1) {
 
         if (isset($_POST["enviar"]) && isset($_FILES["arquivo"])) {
             $idUsuario = $usuario["id"];
-            $diretorio = "../img/"; // Diretório onde a imagem será salva
+            $diretorio = "../img/fotos_de_perfil/"; // Diretório onde a imagem será salva
             $nomeArquivo = $_FILES["arquivo"]["name"];
             $caminhoCompleto = $diretorio . $nomeArquivo;
 
@@ -50,6 +50,23 @@ if (mysqli_num_rows($resultado) == 1) {
             if (move_uploaded_file($_FILES["arquivo"]["tmp_name"], $caminhoCompleto)) {
                 // Atualiza o campo foto_perfil na tabela usuarios
                 $atualizarFoto = "UPDATE usuarios SET foto_perfil = '$caminhoCompleto' WHERE id = $idUsuario";
+                mysqli_query($conexao, $atualizarFoto);
+
+                // Redireciona de volta para a página perfil_usuario.php
+                header("Location: perfil_usuario.php");
+                exit();
+            }
+        }
+
+        if (isset($_POST["remover_foto"])) {
+            $idUsuario = $usuario["id"];
+            $caminhoFoto = $usuario["foto_perfil"];
+            $nomeFoto = basename($caminhoFoto);
+
+            // Verifica se o nome do arquivo é diferente de "profile.png" antes de excluir a foto
+            if ($nomeFoto !== "profile.png" && unlink($caminhoFoto)) {
+                // Atualiza o campo foto_perfil na tabela usuarios para o valor padrão
+                $atualizarFoto = "UPDATE usuarios SET foto_perfil = '../img/fotos_de_perfil/profile.png' WHERE id = $idUsuario";
                 mysqli_query($conexao, $atualizarFoto);
 
                 // Redireciona de volta para a página perfil_usuario.php
@@ -68,6 +85,7 @@ mysqli_close($conexao);
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Perfil</title>
     <link rel="stylesheet" href="/css/perfil_usuario.css">
@@ -75,7 +93,13 @@ mysqli_close($conexao);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <div class="nav-bar">
@@ -91,12 +115,13 @@ mysqli_close($conexao);
     <div class="container_geral">
         <div class="container1">
             <div class="div_superior">
-                <img class="foto_perfil" src="<?= $usuario["foto_perfil"] ?>" alt="imagem-usuario">
+                <img class="foto_perfil" id="foto_perfil" src="<?= $usuario["foto_perfil"] ?>" alt="imagem-usuario" onclick="toggleButtons()">
             </div>
-            <form action="perfil_usuario.php" method="POST" enctype="multipart/form-data">
+            <form action="perfil_usuario.php" method="POST" enctype="multipart/form-data" id="form_imagem" class="hidden">
                 <p>Selecione uma imagem de perfil:</p>
-                <input type="file" required name="arquivo">
-                <input type="submit" name="enviar" value="Salvar">
+                <input type="file" name="arquivo">
+                <input type="submit" name="enviar" value="Salvar"> <br>
+                <input type="submit" name="remover_foto" value="Remover">
             </form>
             <h1><?php echo $usuario["nome"]; ?></h1><br><br>
             <a href="editar_info.php"><button class="editar">Editar Informações</button></a>
@@ -116,5 +141,13 @@ mysqli_close($conexao);
             <div class="info_valor"><?php echo $usuario["sexo"]; ?></div>
         </div>
     </div>
+
+    <script>
+        function toggleButtons() {
+            var form = document.getElementById('form_imagem');
+            form.classList.toggle('hidden');
+        }
+    </script>
 </body>
+
 </html>
