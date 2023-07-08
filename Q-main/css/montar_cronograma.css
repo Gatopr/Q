@@ -1,0 +1,97 @@
+body {
+  margin: 0 0;
+  /* Configuração do plano de fundo */
+  background-image: url("https://th.bing.com/th/id/R.6fb919a79e342539288b0ec884337e55?rik=pknx6EjMmfIHxg&riu=http%3a%2f%2fwww.actionacademia.com.br%2fbackground2.jpg&ehk=0laZVmk3O3KhZYQuOJlHhreCcjEIzycAMyX9zw9DGt4%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  /* Configurações de fonte e margem */
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+main {
+  margin: 0 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10px auto; /* ou ajuste conforme necessário */
+}
+
+table {
+  width: 100%;
+}
+
+table th {
+  background-color: #335033;
+  color: white;
+}
+
+table td {
+  background-color: #e5fcf2;
+  color: black;
+}
+
+table td,
+table th {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 2px solid #ccc;
+  height: 50px; /* Altura fixa desejada para as células */
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Estilos do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+h3 {
+  text-align: center;
+}
+
+form input[type="number"] {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+form select {
+  padding: 8px;
+  width: 220px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Estilos do título */
+label {
+  margin: 10px 20px;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}

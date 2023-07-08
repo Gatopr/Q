@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  background-image: url("https://th.bing.com/th/id/R.6fb919a79e342539288b0ec884337e55?rik=pknx6EjMmfIHxg&riu=http%3a%2f%2fwww.actionacademia.com.br%2fbackground2.jpg&ehk=0laZVmk3O3KhZYQuOJlHhreCcjEIzycAMyX9zw9DGt4%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 100px;
+  background-position: center top;
+  background-size: cover;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+/* estilos.css */
+
+/* Reset de estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos para o body */
+
+/* Estilos para o cabeçalho h1 */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Estilos para o cabeçalho h2 */
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* Estilos para o formulário */
+.formulario {
+  height: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  position: fixed;
+  grid-column: 2;
+  right: 60px;
+  bottom: 60px;
+}
+
+/* Estilos para os rótulos das inputs */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Estilos para as inputs */
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para o botão "Adicionar" */
+input[type="submit"][name="adicionar"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.remover {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.editar {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+h2 {
+  color: black;
+  font-weight: bold;
+}
+
+div {
+  margin-bottom: 20px;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* navegacao.css */
+
+nav {
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+p {
+  color: white;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+img {
+  border-radius: 5px;
+}

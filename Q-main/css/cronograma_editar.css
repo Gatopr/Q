@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    width: 600px;
+  }
+  
+  .table-container {
+    margin-top: 20px;
+  }
+  
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-container th,
+  .table-container td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .edit-form {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .edit-form input {
+    width: 60px;
+    margin-right: 5px;
+  }
+  
+  .edit-form button {
+    padding: 5px 10px;
+  }
+  

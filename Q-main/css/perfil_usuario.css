@@ -1,0 +1,131 @@
+body {
+  /* Configuração do plano de fundo */
+  background-image: url("https://th.bing.com/th/id/R.6fb919a79e342539288b0ec884337e55?rik=pknx6EjMmfIHxg&riu=http%3a%2f%2fwww.actionacademia.com.br%2fbackground2.jpg&ehk=0laZVmk3O3KhZYQuOJlHhreCcjEIzycAMyX9zw9DGt4%3d&risl=&pid=ImgRaw&r=0");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Configurações de fonte e margem */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.espaco {
+  width: 80px;
+  height: 65px;
+}
+
+.foto_perfil {
+  background-color: #335033;
+  border: 5px solid black;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.foto_perfil:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 31px;
+  padding: 5px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 10px;
+}
+
+.container_geral {
+  display: flex;
+  gap: 60px;
+  margin: 0 60px;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 190px;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  justify-content: center;
+  height: 100%;
+}
+
+.info,
+.info_valor {
+  width: 500px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.info {
+  background-color: #335033;
+  font-size: 25px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 10px 20px;
+}
+
+.info_valor {
+  background-color: white;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.editar,
+.excluir,
+.encerrar {
+  width: 270px;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: none;
+  background-color: #335033;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.editar:hover,
+.excluir:hover,
+.encerrar:hover {
+  box-sizing: border-box;
+  transition: 0.8s;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.botoes {
+  display: grid;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+/* estilo_botao.css */
+
+input[type="submit"],
+input[type="file"] {
+  border-radius: 5px;
+  background-color: #335033;
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border: none;
+  margin-bottom: 5px;
+}
